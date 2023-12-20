@@ -1,4 +1,4 @@
-import { format, formatRelative } from "date-fns"
+import { format } from "date-fns"
 
 import { AppearanceSwitch } from "~/components/appearance-switch"
 import {
@@ -46,7 +46,7 @@ export default async function Home() {
                         key === "ID"
                           ? cell.slice(0, 6) + "..."
                           : key === "CreatedAt"
-                            ? formatRelative(new Date(cell), new Date())
+                            ? format(new Date(cell), "yyyy-MM-dd HH:mm:ss")
                             : key === "Ports"
                               ? cell
                                   .split(", ")
