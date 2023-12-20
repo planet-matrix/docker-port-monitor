@@ -25,6 +25,7 @@
     "@t3-oss/env-nextjs": "^0.7.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "date-fns": "^3.0.1",
     "foxact": "^0.2.27",
     "lucide-react": "^0.297.0",
     "next": "^14.0.4",
