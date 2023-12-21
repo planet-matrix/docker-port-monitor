@@ -11,6 +11,8 @@ import {
 } from "~/components/ui/table"
 import { ps, usefulPsRowInfo } from "~/lib/ps"
 
+export const dynamic = "force-dynamic"
+
 export default async function Home() {
   const { data: psOut, timestamp } = await ps()
 
