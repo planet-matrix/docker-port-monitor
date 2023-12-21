@@ -90,7 +90,6 @@ export const ps = unstable_cache(
   innerPs,
   ["docker ps -a --no-trunc --format '{{ json . }}'"],
   {
-    // 5 minutes
-    revalidate: 5 * 60 * 1000,
+    revalidate: 5 * 60,
   },
 )
