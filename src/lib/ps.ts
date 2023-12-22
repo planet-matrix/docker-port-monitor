@@ -37,8 +37,8 @@ export const psRowInfo = [
 
 export const usefulPsRowInfo = [
   // "Command",
-  "CreatedAt",
-  "ID",
+  // "CreatedAt",
+  // "ID",
   "Image",
   // "Labels",
   // "LocalVolumes",
@@ -46,7 +46,7 @@ export const usefulPsRowInfo = [
   "Names",
   // "Networks",
   "Ports",
-  "RunningFor",
+  // "RunningFor",
   // "Size",
   // "State",
   "Status",
