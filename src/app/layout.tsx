@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 
 import { cn } from "~/lib/utils"
 
+import { Providers } from "./providers"
 import { ThemeProvider } from "./theme-provider"
 
 const inter = Inter({
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="zh-Hans" suppressHydrationWarning className="h-full">
       <body className={cn("h-full", inter.className)}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <Providers>
+          <ThemeProvider>{children}</ThemeProvider>
+        </Providers>
       </body>
     </html>
   )

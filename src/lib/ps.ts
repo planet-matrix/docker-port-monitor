@@ -50,7 +50,8 @@ export const usefulPsRowInfo = [
   // "Size",
   // "State",
   "Status",
-].sort()
+] as const
+export type UsefulPSRowInfo = typeof usefulPsRowInfo
 
 async function innerPs() {
   // run docker ps -a
@@ -59,7 +60,7 @@ async function innerPs() {
   // return a promise that resolves with the output
   return new Promise<{
     timestamp: number
-    data: Record<string, string>[]
+    data: PS[]
   }>((resolve, reject) => {
     let output = ""
     process.stdout?.on("data", (data) => {
@@ -74,7 +75,7 @@ async function innerPs() {
           data: output
             .split("\n")
             .filter(Boolean)
-            .map((line) => JSON.parse(line) as Record<string, string>),
+            .map((line) => JSON.parse(line) as PS),
           timestamp: Date.now(),
         })
       } catch (error) {
