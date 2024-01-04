@@ -10,27 +10,23 @@ import {
   TableHeader,
   TableRow,
 } from "~/components/ui/table"
+import { usefulPsRowInfo } from "~/lib/state"
 import { cn } from "~/lib/utils"
 
 import { SortBy, sortByAtom } from "./sortby"
 
-import type { PS, UsefulPSRowInfo } from "~/lib/ps"
+import type { PS } from "~/lib/state"
 
 export function DataTable({
   psOut,
-  usefulPsRowInfo,
   hostWithoutPort,
 }: {
   psOut: PS[]
-  usefulPsRowInfo: UsefulPSRowInfo
   hostWithoutPort: string
 }) {
   const sortBy = useAtomValue(sortByAtom)
-  const rows = psOut.sort((a, b) => {
-    if (sortBy === "names") {
-      return a.Names.localeCompare(b.Names)
-    }
-    return 0
+  const rows = [...psOut].sort((a, b) => {
+    return a[sortBy].localeCompare(b[sortBy])
   })
   return (
     <>
@@ -47,7 +43,7 @@ export function DataTable({
           {rows.map((row, rowIndex) => (
             <TableRow key={row.ID}>
               {usefulPsRowInfo.map((key) => {
-                const cell = psOut[rowIndex]![key]!
+                const cell = psOut[rowIndex]![key as keyof PS]!
                 return (
                   <TableCell
                     key={cell}

@@ -1,57 +1,7 @@
 import { exec } from "node:child_process"
 import { unstable_cache } from "next/cache"
 
-export interface PS {
-  Command: string
-  CreatedAt: string
-  ID: string
-  Image: string
-  Labels: string
-  LocalVolumes: string
-  Mounts: string
-  Names: string
-  Networks: string
-  Ports: string
-  RunningFor: string
-  Size: string
-  State: string
-  Status: string
-}
-
-export const psRowInfo = [
-  "Command",
-  "CreatedAt",
-  "ID",
-  "Image",
-  "Labels",
-  "LocalVolumes",
-  "Mounts",
-  "Names",
-  "Networks",
-  "Ports",
-  "RunningFor",
-  "Size",
-  "State",
-  "Status",
-] as const
-
-export const usefulPsRowInfo = [
-  // "Command",
-  // "CreatedAt",
-  // "ID",
-  "Image",
-  // "Labels",
-  // "LocalVolumes",
-  // "Mounts",
-  "Names",
-  // "Networks",
-  "Ports",
-  // "RunningFor",
-  // "Size",
-  // "State",
-  "Status",
-] as const
-export type UsefulPSRowInfo = typeof usefulPsRowInfo
+import type { PS } from "./state"
 
 async function innerPs() {
   // run docker ps -a

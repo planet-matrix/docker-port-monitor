@@ -5,7 +5,7 @@ import { AppearanceSwitch } from "~/components/appearance-switch"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { env } from "~/env"
-import { ps, usefulPsRowInfo } from "~/lib/ps"
+import { ps } from "~/lib/ps"
 
 import { DataTable } from "./table"
 
@@ -58,11 +58,7 @@ export default async function Home() {
           Hi! I'm running on port <code className="font-bold">3000</code>.{" "}
           {`Updated at ${format(timestamp, "yyyy-MM-dd HH:mm:ss")}.`}
         </p>
-        <DataTable
-          psOut={psOut}
-          hostWithoutPort={hostWithoutPort ?? ""}
-          usefulPsRowInfo={usefulPsRowInfo}
-        />
+        <DataTable psOut={psOut} hostWithoutPort={hostWithoutPort ?? ""} />
       </div>
     </div>
   )
