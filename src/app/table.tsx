@@ -26,7 +26,7 @@ export function DataTable({
 }) {
   const sortBy = useAtomValue(sortByAtom)
   const rows = [...psOut].sort((a, b) => {
-    return a[sortBy].localeCompare(b[sortBy])
+    return -a[sortBy].localeCompare(b[sortBy])
   })
   return (
     <>
