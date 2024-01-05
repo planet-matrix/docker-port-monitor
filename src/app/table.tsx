@@ -43,7 +43,7 @@ export function DataTable({
           {rows.map((row, rowIndex) => (
             <TableRow key={row.ID}>
               {usefulPsRowInfo.map((key) => {
-                const cell = psOut[rowIndex]![key as keyof PS]!
+                const cell = rows[rowIndex]![key as keyof PS]!
                 return (
                   <TableCell
                     key={cell}
